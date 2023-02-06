@@ -1,10 +1,12 @@
 {
   "name": "placemark",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Placemark: A Hapi/Node application for managing points of interests/sites",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "lint": "./node_modules/.bin/eslint . --ext .js"
   },
   "author": "Isadora Fitzgerald",
   "license": "ISC",
@@ -14,5 +16,8 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.5",
     "prettier": "^2.8.3"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.2.1"
   }
 }
