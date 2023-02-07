@@ -1,5 +1,5 @@
-import { userMemStore } from "./mem/user-mem-store";
-import { siteMemStore } from "./mem/site-mem-store";
+import { userMemStore } from "./mem/user-mem-store.js";
+import { siteMemStore } from "./mem/site-mem-store.js";
 
 export const db = {
  userStore: null,
