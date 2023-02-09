@@ -1,0 +1,36 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Weather</th>
+      <th>Images</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each site.places}}
+      <tr>
+        <td>
+          {{name}}
+        </td>
+        <td>
+          {{category}}
+        </td>
+        <td>
+          {{location}}
+        </td>
+        <td>
+          {{description}}
+        </td>
+        <td>
+          {{weather}}
+        </td>
+        <td>
+           {{images}} 
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

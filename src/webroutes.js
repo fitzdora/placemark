@@ -1,6 +1,7 @@
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
+import { siteController } from "./controllers/sites-controller.js";
 
 export const webRoutes = [
 
@@ -16,5 +17,7 @@ export const webRoutes = [
 
 { method: "GET", path: "/about", config: aboutController.index },
 
+{ method: "GET", path: "/site/{id}", config: siteController.index },
+{ method: "POST", path: "/site/{id}/addPlace", config: siteController.addPlace },
 
 ];
