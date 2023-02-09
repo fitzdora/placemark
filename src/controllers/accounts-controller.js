@@ -20,7 +20,7 @@ export const accountsController = {
         },
     },
     showLogin: {
-        handler: function (request, h){
+        handler: function (request, h) {
             return h.view("login-view", { title: "Login to Placemark" });
         },
     },
@@ -34,8 +34,8 @@ export const accountsController = {
             return h.redirect("/dashboard");
         },
     },
-    logout:{
-        handler: function (request, h){
+    logout: {
+        handler: function (request, h) {
             return h.redirect("/");
         },
     },
