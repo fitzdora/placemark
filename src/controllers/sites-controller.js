@@ -21,8 +21,7 @@ export const siteController = {
         location: request.payload.location,
         decription: request.payload.description,
         weather: request.payload.weather,
-        images: request.playload.images,
-        // duration: Number(request.payload.duration),
+        images: request.payload.images,
       };
       await db.placeStore.addPlace(site._id, newPlace);
       return h.redirect(`/site/${site._id}`);

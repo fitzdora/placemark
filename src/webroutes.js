@@ -18,6 +18,6 @@ export const webRoutes = [
 { method: "GET", path: "/about", config: aboutController.index },
 
 { method: "GET", path: "/site/{id}", config: siteController.index },
-{ method: "POST", path: "/site/{id}/addPlace", config: siteController.addPlace },
+{ method: "POST", path: "/site/{id}/addplace", config: siteController.addPlace },
 
 ];

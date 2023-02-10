@@ -35,12 +35,12 @@ export const placeMemStore = {
     places = [];
   },
 
-  async updatePlace(Place, updatedPlace) {
+  async updatePlace(place, updatedPlace) {
     place.name = updatedPlace.name;
     place.category = updatedPlace.category;
     place.location = updatedPlace.location;
     place.description = updatedPlace.description;
     place.weather = updatedPlace.weather;
-    place.image = updupdatedPlace.image;
+    place.images = updatedPlace.images;
   },
 };

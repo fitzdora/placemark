@@ -1,4 +1,5 @@
 import { v4 } from "uuid";
+import { placeMemStore } from "./place-mem-store.js"
 
 let sites = [];
 
@@ -12,7 +13,9 @@ export const siteMemStore = {
    return site;
  },
  async getSiteById(id){
-   return sites.find((site) => site._id === id);
+    const list = sites.find((site) => site._id === id);
+    list.places = await placeMemStore.getPlacesBySiteId(list._id);
+    return list;
  },
  async deleteSiteById(id) {
    const index = sites.findIndex((site) => site._id ===id);
