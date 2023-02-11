@@ -7,6 +7,7 @@ import Handlebars from "handlebars";
 import path from "path";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import dotenv from "dotenv";
+import Joi from "joi";
 import { fileURLToPath } from "url";
 import Cookie from "@hapi/cookie";
 import { webRoutes } from "./webroutes.js";
@@ -50,6 +51,7 @@ async function init() {
     validate: accountsController.validate,
   });
   db.init();
+  server.validator(Joi);
   server.auth.default("session");
   server.route(webRoutes);
   await server.start();
