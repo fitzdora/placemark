@@ -27,5 +27,12 @@ export const dashboardController = {
         return h.redirect("/dashboard");
       },
     },
+    deleteSite: {
+      handler: async function (request, h) {
+        const site = await db.siteStore.getSiteById(request.params.id);
+        await db.siteStore.deleteSiteById(site._id);
+        return h.redirect("/dashboard");
+      },
+    },
   };
   

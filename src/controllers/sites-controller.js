@@ -27,4 +27,11 @@ export const siteController = {
       return h.redirect(`/site/${site._id}`);
     },
   },
+  deletePlace: {
+    handler: async function(request, h) {
+      const site = await db.siteStore.getSiteById(request.params.id);
+      await db.placeStore.deletePlace(request.params.placeid);
+      return h.redirect(`/site/${site._id}`);
+    },
+  },
 };

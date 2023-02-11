@@ -14,10 +14,12 @@ export const webRoutes = [
     
 { method: "GET", path: "/dashboard", config: dashboardController.index },
 { method: "POST", path: "/dashboard/addsite", config: dashboardController.addSite },
+{ method: "GET", path: "/dashboard/deletesite/{id}", config: dashboardController.deleteSite },
 
 { method: "GET", path: "/about", config: aboutController.index },
 
 { method: "GET", path: "/site/{id}", config: siteController.index },
 { method: "POST", path: "/site/{id}/addplace", config: siteController.addPlace },
+{ method: "GET", path: "/site/{id}/deleteplace/{placeid}", config: siteController.deletePlace },
 
 ];
