@@ -4,9 +4,12 @@ import { db } from "../models/db.js";
 export const dashboardController = {
     index: {
       handler: async function (request, h) {
-        const sites = await db.siteStore.getAllSites();
+        // making sure each user is who they say they are
+        const loggedInUser = request.auth.credentials;
+        const sites = await db.siteStore.getUserSites(loggedInUser._id);
         const viewData =  {
           title: "Placemark Dashboard",
+          user: loggedInUser,
           sites: sites,
         };
         return h.view("dashboard-view", viewData);
@@ -14,7 +17,10 @@ export const dashboardController = {
     },
     addSite: {
       handler: async function (request, h) {
+        // each user can only enter playlists for their account
+        const loggedInUser = request.auth.credentials;
         const newSite = {
+          userid: loggedInUser._id,
           title: request.payload.title,
         };
         await db.siteStore.addSite(newSite);

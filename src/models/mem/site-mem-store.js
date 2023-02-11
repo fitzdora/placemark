@@ -17,6 +17,10 @@ export const siteMemStore = {
     list.places = await placeMemStore.getPlacesBySiteId(list._id);
     return list;
  },
+//  setting specific users to site 
+ async getUserSites(userid){
+  return sites.filter((site) => site.userid === userid);
+ },
  async deleteSiteById(id) {
    const index = sites.findIndex((site) => site._id ===id);
    sites.splice(index, 1);
