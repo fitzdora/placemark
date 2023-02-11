@@ -19,7 +19,7 @@ export const siteController = {
         name: request.payload.name,
         category: request.payload.category,
         location: request.payload.location,
-        decription: request.payload.description,
+        description: request.payload.description,
         weather: request.payload.weather,
         images: request.payload.images,
       };
