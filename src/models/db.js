@@ -14,6 +14,6 @@ export const db = {
  init() {
     this.userStore = userJsonStore;
     this.siteStore = siteJsontore;
-    this.placeStore = placeJson store;
+    this.placeStore = placeJsonstore;
  },
 };
