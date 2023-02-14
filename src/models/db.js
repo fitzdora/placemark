@@ -1,7 +1,10 @@
-import { userMemStore } from "./mem/user-mem-store.js";
+/* import { userMemStore } from "./mem/user-mem-store.js";
 import { siteMemStore } from "./mem/site-mem-store.js";
-import { placeMemStore } from "./mem/place-mem-store.js";
+import { placeMemStore } from "./mem/place-mem-store.js"; */
 
+import { userJsonStore } from "./json/user-json-store.js";
+import { siteJsonStore } from "./json/sites-json-store.js";
+import { placeJsonStore } from "./json/place-json-store.js";
 
 export const db = {
  userStore: null,
@@ -9,8 +12,8 @@ export const db = {
  placeStore: null,
 
  init() {
-    this.userStore = userMemStore;
-    this.siteStore = siteMemStore;
-    this.placeStore = placeMemStore;
+    this.userStore = userJsonStore;
+    this.siteStore = siteJsontore;
+    this.placeStore = placeJson store;
  },
 };
