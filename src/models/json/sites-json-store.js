@@ -23,7 +23,7 @@ export const siteJsonStore = {
     async getSiteById(id) {
         await db.read();
         const list = db.data.sites.find((site) => site._id === id);
-        list.places = await placeJsonStore.getPlacesBySiteId(site._id);
+        list.places = await placeJsonStore.getPlacesBySiteId(list._id);
         return list;
     },
 

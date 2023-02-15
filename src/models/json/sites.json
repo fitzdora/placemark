@@ -1,3 +1,9 @@
 {
-    "sites": []
+  "sites": [
+    {
+      "userid": "cdc4a25a-61e8-4d17-ada5-dd44e2d305c0",
+      "title": "Cork",
+      "_id": "323d57bb-8665-4099-8f68-07d1177a5507"
+    }
+  ]
 }

@@ -1,3 +1,14 @@
 {
-    "places": []
+  "places": [
+    {
+      "name": "Fota",
+      "category": "Garden",
+      "location": "Cobh",
+      "description": "A beautiful place",
+      "weather": "too hot",
+      "images": "s",
+      "_id": "748bdc9d-a389-4632-924e-e7ba65625bf9",
+      "siteid": "323d57bb-8665-4099-8f68-07d1177a5507"
+    }
+  ]
 }

@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { SiteSpec } from "../models/joi-schemas.js";
 
 
 export const dashboardController = {
@@ -16,6 +17,14 @@ export const dashboardController = {
       },
     },
     addSite: {
+      // joi schema testing link
+      validate: {
+        payload: SiteSpec,
+        options: {abortEarly: false},
+        failAction: function( request, h, error) {
+          return h.view("dasboard-view", { title: "Add Site error", errors: error.details }).takeover().code(400);
+        },
+      },
       handler: async function (request, h) {
         // each user can only enter playlists for their account
         const loggedInUser = request.auth.credentials;
