@@ -1,25 +1,3 @@
 {
-  "users": [
-    {
-      "firstName": "Alpha",
-      "lastName": "Alpha",
-      "email": "alpha@alpha.com",
-      "password": "secret",
-      "_id": "cdc4a25a-61e8-4d17-ada5-dd44e2d305c0"
-    },
-    {
-      "firstName": "homer",
-      "lastName": "simpson",
-      "email": "homer@simpson.com",
-      "password": "secret",
-      "_id": "685b7c2f-7ab6-46ad-804d-9673815d655d"
-    },
-    {
-      "firstname": "Maggie",
-      "lastname": "Simpson",
-      "email": "maggie@simpson.com",
-      "password": "secret",
-      "_id": "b0dd69f9-5238-462b-97ae-624e49340064"
-    }
-  ]
+  "users": []
 }
