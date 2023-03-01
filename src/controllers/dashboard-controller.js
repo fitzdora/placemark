@@ -26,7 +26,7 @@ export const dashboardController = {
         },
       },
       handler: async function (request, h) {
-        // each user can only enter playlists for their account
+        // each user can only enter a site for their account
         const loggedInUser = request.auth.credentials;
         const newSite = {
           userid: loggedInUser._id,

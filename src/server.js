@@ -1,11 +1,7 @@
 import Hapi from "@hapi/hapi";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Vision from "@hapi/vision";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Handlebars from "handlebars";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import path from "path";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import dotenv from "dotenv";
 import Joi from "joi";
 import { fileURLToPath } from "url";

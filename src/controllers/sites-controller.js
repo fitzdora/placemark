@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { PlaceSpec } from "../models/joi-schemas.js";
 
 export const siteController = {
   index: {
@@ -13,6 +14,13 @@ export const siteController = {
   },
 
   addPlace: {
+    validate: {
+      payload: PlaceSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("site-view", { title: "Add Place error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const site = await db.siteStore.getSiteById(request.params.id);
       const newPlace = {
