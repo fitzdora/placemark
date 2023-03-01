@@ -9,6 +9,16 @@
       "images": "s",
       "_id": "748bdc9d-a389-4632-924e-e7ba65625bf9",
       "siteid": "323d57bb-8665-4099-8f68-07d1177a5507"
+    },
+    {
+      "name": "Fota",
+      "category": "House",
+      "location": "Cobh",
+      "description": "A beautiful place",
+      "weather": "2.3",
+      "images": "x",
+      "_id": "9f9e0844-39e2-44d9-b157-56372dec795f",
+      "siteid": "ee2192d7-3796-4a96-b726-51e533bfaf17"
     }
   ]
 }
