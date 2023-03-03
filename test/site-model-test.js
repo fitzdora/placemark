@@ -5,9 +5,10 @@ import { testSites, fota } from "./fixtures.js";
 suite("Site Model Tests", () => {
 
     setup(async () => {
-        db.init("json");
+        db.init("");
         await db.siteStore.deleteAllSites();
         for (let i = 0; i < testSites.length; i += 1) {
+            // eslint-disable-next-line no-await-in-loop
             testSites[i] = await db.siteStore.addSite(testSites[i]);
         }
     });
