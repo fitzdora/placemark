@@ -46,7 +46,7 @@ async function init() {
     redirectTo: "/",
     validate: accountsController.validate,
   });
-  db.init();
+  db.init("mongo");
   server.validator(Joi);
   server.auth.default("session");
   server.route(webRoutes);
