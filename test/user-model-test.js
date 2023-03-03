@@ -40,6 +40,7 @@ suite("User API tests", () => {
         assert.isNull(noUserWithid);
         const noUserWithEmail = await db.userStore.getUserByEmail("no@one.com");
         assert.isNull(noUserWithEmail);
+        //stoped working at Lab04 recheck implementation on proofread
     }); */
 
     test("get a user - bad params", async () => {

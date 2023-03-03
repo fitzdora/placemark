@@ -1,11 +1,15 @@
 import { assert } from "chai";
+import { EventEmitter } from "events";
 import { db } from "../src/models/db.js";
 import { testSites, fota } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
 
 suite("Site Model Tests", () => {
 
+    EventEmitter.setMaxListeners(25);
+
     setup(async () => {
-        db.init("");
+        db.init("mongo");
         await db.siteStore.deleteAllSites();
         for (let i = 0; i < testSites.length; i += 1) {
             // eslint-disable-next-line no-await-in-loop
@@ -15,7 +19,8 @@ suite("Site Model Tests", () => {
 
     test("create a site", async () => {
         const site = await db.siteStore.addSite(fota);
-        assert.equal(fota, site);
+        // assert.equal(fota, site);
+        assertSubset(fota, site);
         assert.isDefined(site._id);
     });
 
@@ -30,7 +35,8 @@ suite("Site Model Tests", () => {
     test("get a site - success", async () => {
         const site = await db.siteStore.addSite(fota);
         const returnedSite = await db.siteStore.getSiteById(site._id);
-        assert.equal(fota, site);
+        // assert.equal(fota, site);
+        assertSubset (fota, site);
     });
 
     test("delete one site - success", async () => {

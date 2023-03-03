@@ -9,6 +9,7 @@ import { placeJsonStore } from "./json/place-json-store.js";
 // Mongo store data
 import { connectMongo } from "./mongo/connect.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
+import { siteMongoStore } from "./mongo/site-mongo-store.js";
 
 export const db = {
  userStore: null,
@@ -24,6 +25,7 @@ export const db = {
          break;
       case "mongo":
          this.userStore = userMongoStore;
+         this.siteStore = siteMongoStore;
          connectMongo();
          break;
       default:
