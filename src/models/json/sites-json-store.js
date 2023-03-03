@@ -22,8 +22,12 @@ export const siteJsonStore = {
      
     async getSiteById(id) {
         await db.read();
-        const list = db.data.sites.find((site) => site._id === id);
+        let list = db.data.sites.find((site) => site._id === id);
+        if (list){
         list.places = await placeJsonStore.getPlacesBySiteId(list._id);
+        } else {
+            list = null;
+        }
         return list;
     },
 
@@ -35,7 +39,7 @@ export const siteJsonStore = {
     async deleteSiteById(id) {
         await db.read();
         const index = db.data.sites.findIndex((site) => site._id === id);
-        db.data.sites.splice(index, 1);
+        if (index !== -1) db.data.sites.splice(index, 1);
         await db.write();
     },
 

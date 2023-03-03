@@ -26,5 +26,21 @@ export const testUsers = [
     email: "bart@simpson.com",
     password:"secret",
 
-},
+}
+];
+
+export const fota = {
+    title: "Fota"
+};
+
+export const testSites = [
+    {
+        title: "Belvelly Castle"
+    },
+    {
+        title: "Fota House"
+    },
+    {
+        title: "Barryscourt Castle"
+    }
 ];
