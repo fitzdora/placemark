@@ -5,7 +5,7 @@ import { maggie, testUsers } from "./fixtures.js";
 suite("User API tests", () => {
 
     setup(async () => {
-        db.init();
+        db.init("json");
         await db.userStore.deleteAll();
         for (let i = 0; i < testUsers.length; i += 1 ) {
             // eslint-disable-next-line no-await-in-loop
