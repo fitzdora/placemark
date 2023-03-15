@@ -1,8 +1,8 @@
 import { assert } from "chai";
 import { EventEmitter } from "events";
-import { db } from "../src/models/db.js";
-import { testSites, fota } from "./fixtures.js";
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { testSites, fota } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 suite("Site Model Tests", () => {
 
