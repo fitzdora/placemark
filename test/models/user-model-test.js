@@ -3,7 +3,7 @@ import { db } from "../../src/models/db.js";
 import { maggie, testUsers } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
-suite("User API tests", () => {
+suite("User Model tests", () => {
 
     setup(async () => {
         db.init("mongo");
