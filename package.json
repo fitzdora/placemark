@@ -8,7 +8,6 @@
     "start": "node src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js -exit"
-
   },
   "author": "Isadora Fitzgerald",
   "license": "ISC",
@@ -22,6 +21,7 @@
     "prettier": "^2.8.3"
   },
   "dependencies": {
+    "@hapi/boom": "^10.0.1",
     "@hapi/cookie": "^12.0.0",
     "@hapi/hapi": "^21.2.1",
     "@hapi/vision": "^7.0.0",
