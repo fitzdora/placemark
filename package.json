@@ -12,6 +12,7 @@
   "author": "Isadora Fitzgerald",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^1.3.4",
     "chai": "^4.3.7",
     "eslint": "^8.33.0",
     "eslint-config-airbnb-base": "^15.0.0",
