@@ -1,4 +1,5 @@
 import { Boom } from "@hapi/boom";
+import { handler } from "@hapi/hapi/lib/cors.js";
 import { db } from "../models/db.js";
 
 export const siteApi = {
@@ -11,7 +12,7 @@ export const siteApi = {
 
     findOne: {
         auth: false,
-        handler: async function (request) {
+        async handler(request) {
 
         },
     },
@@ -33,7 +34,12 @@ export const siteApi = {
     deleteAll: {
         auth: false,
         handler: async function (request, h) {
-
+            try {
+                await db.siteStore.deleteAllSites();
+                return h.response().code(204);
+            } catch (err) {
+                return Boom.serverUnavailable("Database Error");
+            }
         },
     },
 };

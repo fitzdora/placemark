@@ -11,5 +11,5 @@ export const apiRoutes = [
     { method: "DELETE", path: "/api/sites", config: siteApi.deleteAll },
     { method: "GET", path: "/api/sites", config: siteApi.find },
     { method: "GET", path: "/api/sites/{id}", config: siteApi.findOne },
-    { method: "DELETE", path: "/api/sites/{id}", config: siteApi.deleteOnes },
+    { method: "DELETE", path: "/api/sites/{id}", config: siteApi.deleteOne },
 ];

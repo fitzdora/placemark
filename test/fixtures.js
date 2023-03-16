@@ -32,10 +32,10 @@ export const testUsers = [
 ];
 
 export const fota = {
-    title: "Fota"
+    title: "Fota" // equivalent to mozart
 };
 
-export const castle = {
+export const castle = { // equivalent to concerto
     "name": "Barryscourt Castle",
     "category": "Castle",
     "location": "Midleton",
@@ -45,7 +45,7 @@ export const castle = {
 };
 
 export const garden = {
-    title: "Gardens of Cork"
+    title: "Gardens of Cork" // equivalent to beethhoven
 };
 
 export const testSites = [
