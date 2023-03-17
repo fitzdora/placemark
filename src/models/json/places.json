@@ -1,7 +1,7 @@
 {
   "places": [
     {
-      "name": "Fota",
+      "title": "Fota",
       "category": "Garden",
       "location": "Cobh",
       "description": "A beautiful place",
@@ -11,7 +11,7 @@
       "siteid": "323d57bb-8665-4099-8f68-07d1177a5507"
     },
     {
-      "name": "Fota",
+      "title": "Fota",
       "category": "House",
       "location": "Cobh",
       "description": "A beautiful place",

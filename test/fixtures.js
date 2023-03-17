@@ -36,7 +36,7 @@ export const fota = {
 };
 
 export const castle = { // equivalent to concerto
-    "name": "Barryscourt Castle",
+    "title": "Barryscourt Castle",
     "category": "Castle",
     "location": "Midleton",
     "description": "A unique castle",
@@ -62,7 +62,7 @@ export const testSites = [
 
 export const testPlaces = [
     {
-        "name": "Charles Fort",
+        "title": "Charles Fort",
         "category": "Fort",
         "location": "Kinsale",
         "description": "A Star Fort",
@@ -70,7 +70,7 @@ export const testPlaces = [
         "image": "y"
     },
     {
-        "name": "Fota House",
+        "title": "Fota House",
         "category": "Residence",
         "location": "Fota Island",
         "description": "A unique own Island residance",
@@ -78,7 +78,7 @@ export const testPlaces = [
         "image": "z"
     },
     {
-        "name": "Ilnacullin ",
+        "title": "Ilnacullin ",
         "category": "Garden",
         "location": "Bantry",
         "description": "An Island Garden of rare Beauty",

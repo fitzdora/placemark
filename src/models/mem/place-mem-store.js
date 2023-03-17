@@ -36,7 +36,7 @@ export const placeMemStore = {
   },
 
   async updatePlace(place, updatedPlace) {
-    place.name = updatedPlace.name;
+    place.title = updatedPlace.title;
     place.category = updatedPlace.category;
     place.location = updatedPlace.location;
     place.description = updatedPlace.description;

@@ -40,7 +40,7 @@ export const placeMongoStore = {
 
     async updatePlace(place, updatedPlace) {
         const placeDoc = await Place.findOne({ _id: place._id });
-        placeDoc.name = updatedPlace.name;
+        placeDoc.title = updatedPlace.title;
         placeDoc.category = updatedPlace.category;
         placeDoc.location = updatedPlace.location;
         placeDoc.description = updatedPlace.description;

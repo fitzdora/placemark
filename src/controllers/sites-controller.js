@@ -24,7 +24,7 @@ export const siteController = {
     handler: async function (request, h) {
       const site = await db.siteStore.getSiteById(request.params.id);
       const newPlace = {
-        name: request.payload.name,
+        title: request.payload.title,
         category: request.payload.category,
         location: request.payload.location,
         description: request.payload.description,
