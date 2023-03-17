@@ -1,25 +1,48 @@
 import { Boom } from "@hapi/boom";
-import { handler } from "@hapi/hapi/lib/cors.js";
+// import { handler } from "@hapi/hapi/lib/cors.js";
 import { db } from "../models/db.js";
 
 export const siteApi = {
     find: {
         auth: false,
         handler: async function (request, h) {
-
+            try {
+                const sites = await db.siteStore.getAllSites();
+                return sites;
+            } catch (error) {
+                return Boom.serverUnavailable("Database error");
+            }
         },
     },
 
     findOne: {
         auth: false,
-        async handler(request) {
-
+        handler: async function (request, h) {
+            try { 
+                const site = await db.siteStore.getSiteById(request.params.id);
+                if (!site) {
+                    return Boom.notFound("No Site with this id");
+                }
+                return site;
+            } catch (error) {
+                return Boom.serverUnavailable("No Site with this id");
+            }
         },
     },
 
     create: {
         auth: false,
         handler: async function (request, h) {
+            try {
+                const site = request.payload;
+                const newSite = await db.siteStore.addSite(site);
+                if (newSite) {
+                    return h.response(newSite).code(201);
+                }
+                return Boom.badImplementation("error creating site");
+            } catch (error) {
+                return Boom.serverUnavailable("Database error");
+            }
 
         },
     },
@@ -27,7 +50,16 @@ export const siteApi = {
     deleteOne: {
         auth: false,
         handler: async function (request, h) {
-
+            try {
+                const site = await db.siteStore.getSiteById(request.params.id);
+                if (!site) {
+                    return Boom.notFound("No Site with this id");
+                }
+                await db.siteStore.deleteSiteById(site._id);
+                return h.response().code(204);
+            } catch (error) {
+                return Boom.serverUnavailable("No Site with this id");
+            }
         },
     },
 

@@ -32,7 +32,7 @@ export const testUsers = [
 ];
 
 export const fota = {
-    title: "Fota" // equivalent to mozart
+    title: "Fota Gardens" // equivalent to mozart
 };
 
 export const castle = { // equivalent to concerto

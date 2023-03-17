@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
-    "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js -exit"
+    "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js -exit",
+    "dev": "./node_modules/.bin/nodemon src/server.js"
   },
   "author": "Isadora Fitzgerald",
   "license": "ISC",
