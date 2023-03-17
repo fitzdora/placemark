@@ -30,7 +30,7 @@ suite("Site Api Tests", () => {
         const response = await placemarkService.deleteSite(site._id);
         assert.equal(response.status, 204);
         try {
-            const returnedSite = await placemarkService.getSite(site.id);
+            const returnedSite = await placemarkService.getSite(site._id);
             assert.fail("Should not return a response");
         } catch (error) {
             assert(error.response.data.message === "No Site with this id", "Incorrect Response Message");

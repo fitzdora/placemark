@@ -6,7 +6,7 @@ import { maggie, fota, testSites, testPlaces, castle } from "../fixtures.js";
 suite("Place API tests", () => {
     let user = null;
     let fotahouse = null; 
-    // not 100% clear what this refers too as not a in the fixture list exactly as a const. 
+    // not 100% clear what this refers too as beethovensonantas not a const in the fixture list on playtime 
     
     setup(async () => {
         await placemarkService.deleteAllSites();
@@ -26,10 +26,21 @@ suite("Place API tests", () => {
     });
 
     test("create multiple places", async () => {
-
+        for (let i = 0; i < testPlaces.length; i += 1) {
+            // eslint-disable-next-line no-await-in-loop
+            await placemarkService.createPlace(fotahouse._id, testPlaces[i]);
+        }
+        const returnedPlaces = await placemarkService.getAllPlaces();
+        assert.equal(returnedPlaces.length, testPlaces.length);
+        for(let i = 0; i < returnedPlaces.length; i += 1) {
+            // eslint-disable-next-line no-await-in-loop
+            const place = await placemarkService.getPlace(returnedPlaces[i]._id);
+            assertSubset(place, returnedPlaces[i]);
+        }
     });
 
     test("Delete a place", async () => {
+        
 
     });
 
