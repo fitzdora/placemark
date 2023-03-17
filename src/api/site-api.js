@@ -9,7 +9,7 @@ export const siteApi = {
             try {
                 const sites = await db.siteStore.getAllSites();
                 return sites;
-            } catch (error) {
+            } catch (err) {
                 return Boom.serverUnavailable("Database error");
             }
         },
@@ -24,7 +24,7 @@ export const siteApi = {
                     return Boom.notFound("No Site with this id");
                 }
                 return site;
-            } catch (error) {
+            } catch (err) {
                 return Boom.serverUnavailable("No Site with this id");
             }
         },
@@ -40,7 +40,7 @@ export const siteApi = {
                     return h.response(newSite).code(201);
                 }
                 return Boom.badImplementation("error creating site");
-            } catch (error) {
+            } catch (err) {
                 return Boom.serverUnavailable("Database error");
             }
 
@@ -57,7 +57,7 @@ export const siteApi = {
                 }
                 await db.siteStore.deleteSiteById(site._id);
                 return h.response().code(204);
-            } catch (error) {
+            } catch (err) {
                 return Boom.serverUnavailable("No Site with this id");
             }
         },

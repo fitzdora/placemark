@@ -1,8 +1,10 @@
+import { EventEmitter } from "events";
 import { assert } from "chai";
 import { placemarkService } from "./placemark-services.js";
 import { assertSubset } from "../test-utils.js";
 import { maggie, fota, testSites } from "../fixtures.js"
 
+EventEmitter.setMaxListeners(25);
 suite("Site Api Tests", () => {
 
     let user = null;

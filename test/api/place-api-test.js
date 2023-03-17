@@ -5,7 +5,8 @@ import { maggie, fota, testSites, testPlaces, castle } from "../fixtures.js";
 
 suite("Place API tests", () => {
     let user = null;
-    let charlesfort = null; //not 100% clear what this refers too as not a const.?
+    let charlesfort = null; 
+    // not 100% clear what this refers too as not a in the fixture list exactly as a const. 
     
     setup(async () => {
 

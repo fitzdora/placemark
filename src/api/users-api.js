@@ -18,16 +18,16 @@ export const userApi = {
     },
 
 
-find: {
-    auth: false,
-    handler: async function(request, h) {
-        try {
-            const users = await db.userStore.getAllUsers();
-            return users;
-        } catch (err) {
-            return Boom.serverUnavailable("Database Error");
-        }
-      },
+    find: {
+        auth: false,
+        handler: async function(request, h) {
+            try {
+                const users = await db.userStore.getAllUsers();
+                return users;
+            } catch (err) {
+                return Boom.serverUnavailable("Database Error");
+            }
+        },
     },
 
     findOne: {
@@ -39,7 +39,7 @@ find: {
                     return Boom.notFound("No User with this id");
                 }
                 return user;
-            } catch (err) {
+               } catch (err) {
                 return Boom.serverUnavailable("No User with this id");
             }
         },

@@ -7,7 +7,8 @@ suite("User API tests", () => {
   setup(async () => {
     await placemarkService.deleteAllUsers();
     for (let i = 0; i < testUsers.length; i += 1) {
-      testUsers[i] = await placemarkService.createUser(testUsers[i]);
+      // eslint-disable-next-line no-await-in-loop
+      testUsers[0] = await placemarkService.createUser(testUsers[i]);
     }
   });
   teardown(async () => {
@@ -38,7 +39,7 @@ suite("User API tests", () => {
     assert.fail("Should not return a response");
     } catch (error) {
     assert(error.response.data.message === "No User with this id");
-    assert.equal(error.response.data.statusCode, 503);
+    assert.equal(error.response.data.statusCode, 503); // this has been greeened over
     }
   });
 
