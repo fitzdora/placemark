@@ -1,12 +1,11 @@
 import { assert } from "chai";
 import { EventEmitter } from "events";
 import { db } from "../../src/models/db.js";
-import { testSites, fota } from "../fixtures.js";
+import { testSites, fota, maggie } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
+EventEmitter.setMaxListeners(25);
 suite("Site Model Tests", () => {
-
-    EventEmitter.setMaxListeners(25);
 
     setup(async () => {
         db.init("mongo");

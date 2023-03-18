@@ -1,7 +1,7 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { validationError } from "./logger.js";
-import { UserSpec, IdSpec, UserArray } from "../models/joi-schemas.js";
+import { UserSpec, IdSpec, UserArray, UserSpecPlus } from "../models/joi-schemas.js";
 
 export const userApi = {
     create: {
@@ -21,7 +21,7 @@ export const userApi = {
         description: "Create a User",
         notes: "Returns the newly created user",
         validate: { payload: UserSpec, failAction: validationError},
-        response: { schema: UserSpec, failAction: validationError },
+        response: { schema: UserSpecPlus, failAction: validationError },
     },
 
 
@@ -58,7 +58,7 @@ export const userApi = {
         description: "Get a specific User",
         notes: "Returns User details",
         validate: { params: { id: IdSpec }, failAction: validationError},
-        response: { schema: UserSpec, failAction: validationError },
+        response: { schema: UserSpecPlus, failAction: validationError },
     },
 
     deleteAll: {

@@ -1,5 +1,7 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
+import { IdSpec, SiteArraySpec, SiteSpec, SiteSpecPlus } from "../models/joi-schemas.js";
+import { validationError } from "./logger.js";
 
 export const siteApi = {
     find: {
@@ -12,7 +14,12 @@ export const siteApi = {
                 return Boom.serverUnavailable("Database error");
             }
         },
+        tags: ["api"],
+        response: { schema: SiteArraySpec, failAction: validationError },
+        description: "Get all sites",
+        notes: "Returns all site",
     },
+    
 
     findOne: {
         auth: false,
@@ -27,6 +34,11 @@ export const siteApi = {
                 return Boom.serverUnavailable("No Site with this id");
             }
         },
+        tags: ["api"],
+        description: "Get a Site",
+        notes: "Returns a Site",
+        validate: { params: { id: IdSpec }, failAction: validationError},
+        response: { schema: SiteSpecPlus, failAction: validationError },
     },
 
     create: {
@@ -42,8 +54,12 @@ export const siteApi = {
             } catch (err) {
                 return Boom.serverUnavailable("Database error");
             }
-
         },
+        tags: ["api"],
+        description: "Create a Site",
+        notes: "Returns the newly created Site",
+        validate: { payload: SiteSpec, failAction: validationError},
+        response: { schema: SiteSpecPlus, failAction: validationError },
     },
 
     deleteOne: {
@@ -60,6 +76,10 @@ export const siteApi = {
                 return Boom.serverUnavailable("No Site with this id");
             }
         },
+        tags: ["api"],
+        description: "Delete a Site",
+        notes: "Deletes one Site",
+        validate: { params: { id: IdSpec }, failAction: validationError},
     },
 
     deleteAll: {
@@ -72,5 +92,7 @@ export const siteApi = {
                 return Boom.serverUnavailable("Database Error");
             }
         },
+        tags: ["api"],
+        description: "Delete all Sites",
     },
 };

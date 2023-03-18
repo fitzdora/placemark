@@ -3,6 +3,8 @@ import { placemarkService } from "./placemark-services.js";
 import { assertSubset } from "../test-utils.js";
 import { maggie, testUsers } from "../fixtures.js";
 
+const users = new Array(testUsers.length);
+
 suite("User API tests", () => {
   setup(async () => {
     await placemarkService.deleteAllUsers();
@@ -39,7 +41,7 @@ suite("User API tests", () => {
     assert.fail("Should not return a response");
     } catch (error) {
     assert(error.response.data.message === "No User with this id");
-    assert.equal(error.response.data.statusCode, 503); // this has been greeened over
+    assert.equal(error.response.data.statusCode, 503); 
     }
   });
 
