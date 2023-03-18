@@ -7,7 +7,7 @@ export const dashboardController = {
       handler: async function (request, h) {
         // making sure each user is who they say they are
         const loggedInUser = request.auth.credentials;
-        const sites = await db.siteStore.getUserSites(loggedInUser._id);
+        const sites = await db.siteStore.getUserSite(loggedInUser._id);
         const viewData =  {
           title: "Placemark Dashboard",
           user: loggedInUser,
