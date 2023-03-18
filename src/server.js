@@ -5,12 +5,17 @@ import Handlebars from "handlebars";
 import path from "path";
 import dotenv from "dotenv";
 import Joi from "joi";
-import { fileURLToPath } from "url";
 import Cookie from "@hapi/cookie";
+import HapiSwagger from "hapi-swagger";
+import { fileURLToPath } from "url";
 import { webRoutes } from "./webroutes.js";
 import { apiRoutes } from "./api-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const result = dotenv.config();
 if (result.error) {
@@ -18,15 +23,34 @@ if (result.error) {
   process.exit(1);
 }
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const swaggerOptions = {
+ info: {
+  title:"Placemark API",
+  version:"0.1",
+ }
+}
 
 async function init() {
   const server = Hapi.server({
     port: 3001,
     host: "localhost",
   });
+
+  await server.register(Inert);
   await server.register(Vision);
+  await server.register(Cookie);
+
+  await server.register([
+    Inert,
+    Vision,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions,
+    },
+  ]);
+
+  server.validator(Joi);
+
   server.views({
     engines: {
       hbs: Handlebars,
@@ -38,7 +62,7 @@ async function init() {
     layout: true,
     isCached: false,
   });
-  await server.register(Cookie);
+ 
   server.auth.strategy("session", "cookie", {
     cookie: {
       name: process.env.cookie_name,
@@ -48,13 +72,13 @@ async function init() {
     redirectTo: "/",
     validate: accountsController.validate,
   });
-  await server.register(Inert);
-  db.init("mongo");
-  server.validator(Joi);
+
+
   server.auth.default("session");
+  
+  db.init("mongo");
   server.route(webRoutes);
   server.route(apiRoutes);
-  await server.register(Inert);
   await server.start();
   console.log("Server running on %s", server.info.uri);
 }
