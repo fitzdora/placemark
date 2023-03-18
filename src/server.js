@@ -73,7 +73,6 @@ async function init() {
     validate: accountsController.validate,
   });
 
-
   server.auth.default("session");
   
   db.init("mongo");
