@@ -22,7 +22,7 @@ export const dashboardController = {
         payload: SiteSpec,
         options: {abortEarly: false},
         failAction: function( request, h, error) {
-          return h.view("dasboard-view", { title: "Add Site error", errors: error.details }).takeover().code(400);
+          return h.view("dashboard-view", { title: "Add Site error", errors: error.details }).takeover().code(400);
         },
       },
       handler: async function (request, h) {

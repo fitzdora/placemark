@@ -1,5 +1,4 @@
 import Boom from "@hapi/boom";
-// import { handler } from "@hapi/hapi/lib/cors.js";
 import { db } from "../models/db.js";
 
 export const siteApi = {

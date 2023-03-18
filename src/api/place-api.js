@@ -1,4 +1,5 @@
 import Boom from "@hapi/boom";
+import { handler } from "@hapi/vision/lib/schemas.js";
 import { db } from "../models/db.js";
 
 export const placeApi = {
@@ -16,7 +17,7 @@ export const placeApi = {
 
     findOne: {
         auth: false,
-        handler: async function (request, h) {
+        async handler (request) {
             try {
                 const place = await db.placeStore.getPlaceById(request.params.id);
                 if (!place) {

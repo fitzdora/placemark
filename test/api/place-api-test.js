@@ -5,7 +5,7 @@ import { maggie, fota, testSites, testPlaces, castle } from "../fixtures.js";
 
 suite("Place API tests", () => {
     let user = null;
-    let fotahouse = null; 
+    let fotahouse = {}; 
     // not 100% clear what this refers too as beethovensonantas not a const in the fixture list on playtime 
     
     setup(async () => {
@@ -14,15 +14,14 @@ suite("Place API tests", () => {
         await placemarkService.deleteAllPlaces();
         user = await placemarkService.createUser(maggie);
         fota.userid = user._id;
-        fotahouse = await placemarkService.createSite(fota);
+        fotahouse = await placemarkService.createSite(fotahouse);
     });
 
     teardown(async () => {});
 
     test("create a place", async () => {
-        const returnedPlace = await placemarkService.createPlace(fotahouse);
+        const returnedPlace = await placemarkService.createPlace(fotahouse._id, castle);
         assertSubset(castle, returnedPlace)
-
     });
 
     test("create multiple places", async () => {
