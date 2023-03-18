@@ -1,3 +1,4 @@
+import Inert from "@hapi/inert";
 import Hapi from "@hapi/hapi";
 import Vision from "@hapi/vision";
 import Handlebars from "handlebars";
@@ -47,11 +48,13 @@ async function init() {
     redirectTo: "/",
     validate: accountsController.validate,
   });
+  await server.register(Inert);
   db.init("mongo");
   server.validator(Joi);
   server.auth.default("session");
   server.route(webRoutes);
   server.route(apiRoutes);
+  await server.register(Inert);
   await server.start();
   console.log("Server running on %s", server.info.uri);
 }

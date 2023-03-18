@@ -2,6 +2,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { siteController } from "./controllers/sites-controller.js";
+import { placeController } from "./controllers/place-controller.js";
 
 export const webRoutes = [
 
@@ -21,5 +22,10 @@ export const webRoutes = [
 { method: "GET", path: "/site/{id}", config: siteController.index },
 { method: "POST", path: "/site/{id}/addplace", config: siteController.addPlace },
 { method: "GET", path: "/site/{id}/deleteplace/{placeid}", config: siteController.deletePlace },
+
+{ method: "GET", path: "/place/{id}/editplace/{placeid}", config: placeController.index },
+{ method: "POST", path: "/place/{id}/updateplace/{placeid}", config: placeController.update },
+
+{ method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 
 ];
