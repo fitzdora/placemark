@@ -3,7 +3,7 @@ import { db } from "../../src/models/db.js";
 import { testSites, testPlaces, fota, castle, testUsers, garden } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
-suite("Track Model tests", () => {
+suite("Place Model tests", () => {
 
     let gardenList = null;
 
