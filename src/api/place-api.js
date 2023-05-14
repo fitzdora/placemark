@@ -1,12 +1,14 @@
 import Boom from "@hapi/boom";
-//import { handler } from "@hapi/vision/lib/schemas.js";
-import { db } from "../models/db.js";
+// import { handler } from "@hapi/vision/lib/schemas.js";
+import { db  } from "../models/db.js";
 import { IdSpec, PlaceSpec, PlaceSpecPlus, PlaceArraySpec } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
 
 export const placeApi = {
     find: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         handler: async function (request, h) {
             try {
                 const places = await db.placeStore.getAllPlaces();
@@ -22,7 +24,9 @@ export const placeApi = {
     },
 
     findOne: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         async handler (request) {
             try {
                 const place = await db.placeStore.getPlaceById(request.params.id);
@@ -38,11 +42,13 @@ export const placeApi = {
         description: "Find a Place",
         notes: "Returns a place",
         validate: { params: { id: IdSpec }, failAction: validationError},
-        response: { schema: PlaceArraySpec, failAction: validationError },      
+        response: { schema: PlaceSpecPlus, failAction: validationError },      
     },
 
     create: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         handler: async function (request, h) {
             try {
                 const place = await db.placeStore.addPlace(request.params.id, request.payload);
@@ -57,12 +63,14 @@ export const placeApi = {
         tags: ["api"],
         description: "Create a Place",
         notes: "Returns a newly created place",
-        validate: { payload: PlaceSpec },
+        validate: { payload: PlaceSpec, failAction: validationError },
         response: { schema: PlaceSpecPlus, failAction: validationError },
     },
 
     deleteAll: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         handler: async function (request, h) {
             try {
                 await db.placeStore.deleteAllPlaces();
@@ -76,7 +84,9 @@ export const placeApi = {
     },
     
     deleteOne: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         handler: async function (request, h) {
             try {
                 const place = await db.placeStore.getPlaceById(request.params.id);
@@ -91,6 +101,6 @@ export const placeApi = {
         },
         tags: ["api"],
         description: "Delete a Place",
-        validate: {params: { id: IdSpec }, failAction: validationError },
+        validate: { params: { id: IdSpec }, failAction: validationError },
     },
 };

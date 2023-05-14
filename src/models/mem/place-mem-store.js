@@ -19,7 +19,11 @@ export const placeMemStore = {
   },
 
   async getPlaceById(id) {
-    return places.find((place) => place._id === id);
+    let place = places.find((place) => place._id === id);
+    if (place == undefined) {
+      place = null;
+    }
+    return place;
   },
 
   async getSitePlaces(siteId) {

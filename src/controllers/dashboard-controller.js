@@ -20,7 +20,7 @@ export const dashboardController = {
       // joi schema testing link
       validate: {
         payload: SiteSpec,
-        options: {abortEarly: false},
+        options: { abortEarly: false },
         failAction: function( request, h, error) {
           return h.view("dashboard-view", { title: "Add Site error", errors: error.details }).takeover().code(400);
         },

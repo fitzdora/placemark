@@ -46,5 +46,6 @@ export const placeMongoStore = {
         placeDoc.description = updatedPlace.description;
         placeDoc.weather = updatedPlace.weather;
         placeDoc.images = updatedPlace.images;
+        await placeDoc.save();
     },
 };

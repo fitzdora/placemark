@@ -45,18 +45,18 @@ export const castle = { // equivalent to concerto
 };
 
 export const garden = {
-    title: "Gardens of Cork" // equivalent to beethhoven
+    "title": "Gardens of Cork" // equivalent to beethhoven
 };
 
 export const testSites = [
     {
-        title: "Belvelly Castle"
+        "title": "Belvelly Castle"
     },
     {
-        title: "Fota House"
+        "title": "Fota House"
     },
     {
-        title: "Barryscourt Castle"
+        "title": "Barryscourt Castle"
     }
 ];
 

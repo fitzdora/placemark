@@ -5,15 +5,20 @@ import { assertSubset } from "../test-utils.js";
 import { maggie, fota, testSites } from "../fixtures.js"
 
 EventEmitter.setMaxListeners(25);
+
 suite("Site Api Tests", () => {
 
     let user = null;
     // let site = null;
 
     setup(async () => {
+        placemarkService.clearAuth();
+        user = await placemarkService.createUser(maggie);
+        await placemarkService.authenticate(maggie);
         await placemarkService.deleteAllSites();
         await placemarkService.deleteAllUsers();
         user = await placemarkService.createUser(maggie);
+        await placemarkService.authenticate(maggie);
         fota.userid = user._id;
     });
 
@@ -48,6 +53,7 @@ suite("Site Api Tests", () => {
         returnedSites = await placemarkService.getAllSites();
         assert.equal(returnedSites.length, 0);
     });
+    
     test("Remove non-existant Sites", async() => {
         try {
             const response = await placemarkService.deleteSite("not an id");

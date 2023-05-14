@@ -3,9 +3,12 @@ import { db } from "../models/db.js";
 import { IdSpec, SiteArraySpec, SiteSpec, SiteSpecPlus } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
 
+
 export const siteApi = {
     find: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         handler: async function (request, h) {
             try {
                 const sites = await db.siteStore.getAllSites();
@@ -22,8 +25,10 @@ export const siteApi = {
     
 
     findOne: {
-        auth: false,
-        handler: async function (request, h) {
+        auth: {
+            strategy: "jwt",
+        },
+        async handler (request) {
             try { 
                 const site = await db.siteStore.getSiteById(request.params.id);
                 if (!site) {
@@ -42,7 +47,9 @@ export const siteApi = {
     },
 
     create: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         handler: async function (request, h) {
             try {
                 const site = request.payload;
@@ -63,7 +70,9 @@ export const siteApi = {
     },
 
     deleteOne: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         handler: async function (request, h) {
             try {
                 const site = await db.siteStore.getSiteById(request.params.id);
@@ -83,7 +92,9 @@ export const siteApi = {
     },
 
     deleteAll: {
-        auth: false,
+        auth: {
+            strategy: "jwt",
+        },
         handler: async function (request, h) {
             try {
                 await db.siteStore.deleteAllSites();
