@@ -13,7 +13,7 @@ suite("Place API tests", () => {
         user = await placemarkService.createUser(maggie);
         await placemarkService.authenticate(maggie);
         await placemarkService.deleteAllSites();
-        // await placemarkService.deleteAllUsers();
+        await placemarkService.deleteAllUsers();
         await placemarkService.deleteAllPlaces();
         user = await placemarkService.createUser(maggie);
         await placemarkService.authenticate(maggie);
