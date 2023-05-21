@@ -18,7 +18,7 @@ export const placeApi = {
             }
         },
         tags: ["api"],
-        response: { schema: PlaceArraySpec, failAction: validationError },
+        // response: { schema: PlaceArraySpec, failAction: validationError },
         description: "Get all places",
         notes: "Returns all places",
     },
@@ -41,8 +41,8 @@ export const placeApi = {
         tags: ["api"],
         description: "Find a Place",
         notes: "Returns a place",
-        validate: { params: { id: IdSpec }, failAction: validationError},
-        response: { schema: PlaceSpecPlus, failAction: validationError },      
+       //  validate: { params: { id: IdSpec }, failAction: validationError},
+      // response: { schema: PlaceSpecPlus, failAction: validationError },      
     },
 
     create: {
@@ -63,8 +63,8 @@ export const placeApi = {
         tags: ["api"],
         description: "Create a Place",
         notes: "Returns a newly created place",
-        validate: { payload: PlaceSpec, failAction: validationError },
-        response: { schema: PlaceSpecPlus, failAction: validationError },
+       // validate: { payload: PlaceSpec, failAction: validationError },
+       // response: { schema: PlaceSpecPlus, failAction: validationError },
     },
 
     deleteAll: {
@@ -101,6 +101,6 @@ export const placeApi = {
         },
         tags: ["api"],
         description: "Delete a Place",
-        validate: { params: { id: IdSpec }, failAction: validationError },
+        // validate: { params: { id: IdSpec }, failAction: validationError },
     },
 };

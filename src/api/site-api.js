@@ -18,7 +18,7 @@ export const siteApi = {
             }
         },
         tags: ["api"],
-        response: { schema: SiteArraySpec, failAction: validationError },
+        // response: { schema: SiteArraySpec, failAction: validationError },
         description: "Get all sites",
         notes: "Returns all site",
     },
@@ -42,7 +42,7 @@ export const siteApi = {
         tags: ["api"],
         description: "Get a Site",
         notes: "Returns a Site",
-        validate: { params: { id: IdSpec }, failAction: validationError},
+        // validate: { params: { id: IdSpec }, failAction: validationError},
         response: { schema: SiteSpecPlus, failAction: validationError },
     },
 
@@ -65,8 +65,8 @@ export const siteApi = {
         tags: ["api"],
         description: "Create a Site",
         notes: "Returns the newly created Site",
-        validate: { payload: SiteSpec, failAction: validationError},
-        response: { schema: SiteSpecPlus, failAction: validationError },
+        // validate: { payload: SiteSpec, failAction: validationError},
+        // response: { schema: SiteSpecPlus, failAction: validationError },
     },
 
     deleteOne: {
@@ -88,7 +88,7 @@ export const siteApi = {
         tags: ["api"],
         description: "Delete a Site",
         notes: "Deletes one Site",
-        validate: { params: { id: IdSpec }, failAction: validationError},
+       // validate: { params: { id: IdSpec }, failAction: validationError},
     },
 
     deleteAll: {

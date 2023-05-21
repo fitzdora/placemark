@@ -16,7 +16,7 @@ suite("Site Api Tests", () => {
         user = await placemarkService.createUser(maggie);
         await placemarkService.authenticate(maggie);
         await placemarkService.deleteAllSites();
-        await placemarkService.deleteAllUsers();
+        // await placemarkService.deleteAllUsers();
         user = await placemarkService.createUser(maggie);
         await placemarkService.authenticate(maggie);
         fota.userid = user._id;
