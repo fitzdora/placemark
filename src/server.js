@@ -34,8 +34,9 @@ const swaggerOptions = {
 
 async function init() {
   const server = Hapi.server({
-    port: 3001,
-    host: "localhost",
+    port: process.env.PORT || 3001,
+    routes: {cors: true},
+    // set cross origion resource sharing 
   });
 
   await server.register(Inert);
