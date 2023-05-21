@@ -28,8 +28,8 @@ export const seedData = {
         }
     },
     places: {
-        _model: "Place",
-        place_1: {
+      _model: "Place",
+      place_1: {
         title: "Belvelly",
         category: "Castle",
         location: "Cobh",
@@ -37,7 +37,16 @@ export const seedData = {
         weather: "Fair",
         image: "y",
         siteid: "->sites.cobh"
-        },
+      },
+      place_2: {
+        title: "Martello Tower 1",
+        category: "Defensive Tower",
+        location: "Cobh",
+        description: "A restored stronghold",
+        weather: "Fair",
+        image: "x",
+        siteid: "->sites.cobh"
+      },
     }
   };
   
