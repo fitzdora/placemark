@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placemarkService } from "./placemark-services.js";
-import { maggie, fota, testSites, testPlaces, castle } from "../fixtures.js";
+import { maggie, maggieCredentials, fota, testSites, testPlaces, castle } from "../fixtures.js";
 
 suite("Place API tests", () => {
     let user = null;
@@ -11,14 +11,14 @@ suite("Place API tests", () => {
     setup(async () => {
         placemarkService.clearAuth();
         user = await placemarkService.createUser(maggie);
-        await placemarkService.authenticate(maggie);
+        await placemarkService.authenticate(maggieCredentials);
         await placemarkService.deleteAllSites();
-        await placemarkService.deleteAllUsers();
+        // await placemarkService.deleteAllUsers();
         await placemarkService.deleteAllPlaces();
         user = await placemarkService.createUser(maggie);
-        await placemarkService.authenticate(maggie);
+        await placemarkService.authenticate(maggieCredentials);
         fota.userid = user._id;
-        fotahouse = await placemarkService.createSite(fotahouse);
+        fotahouse = await placemarkService.createSite(fota);
     });
 
     teardown(async () => {});

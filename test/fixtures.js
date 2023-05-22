@@ -7,6 +7,11 @@ export const maggie = {
     password:"secret",
 };
 
+export const maggieCredentials = {
+    email: "maggie@simpson.com",
+    password: "secret",
+};
+
 export const testUsers = [
 {
     firstname: "Homer",
@@ -36,54 +41,54 @@ export const fota = {
 };
 
 export const castle = { // equivalent to concerto
-    "title": "Barryscourt Castle",
-    "category": "Castle",
-    "location": "Midleton",
-    "description": "A unique castle",
-    "weather": "moderate",
-    "image": "x"
+    title: "Barryscourt Castle",
+    category: "Castle",
+    location: "Midleton",
+    description: "A unique castle",
+    weather: "moderate",
+    image: "x",
 };
 
 export const garden = {
-    "title": "Gardens of Cork" // equivalent to beethhoven
+    title: "Gardens of Cork" // equivalent to beethhoven
 };
 
 export const testSites = [
     {
-        title: "Belvelly Castle"
+        title: "Belvelly Castle",
     },
     {
-        title: "Fota House"
+        title: "Fota House",
     },
     {
-        title: "Barryscourt Castle"
+        title: "Barryscourt Castle",
     }
 ];
 
 export const testPlaces = [
     {
-        "title": "Charles Fort",
-        "category": "Fort",
-        "location": "Kinsale",
-        "description": "A Star Fort",
-        "weather": "Fair",
-        "image": "y"
+        title: "Charles Fort",
+        category: "Fort",
+        location: "Kinsale",
+        description: "A Star Fort",
+        weather: "Fair",
+        image: "y",
     },
     {
-        "title": "Fota House",
-        "category": "Residence",
-        "location": "Fota Island",
-        "description": "A unique own Island residance",
-        "weather": "mild",
-        "image": "z"
+        title: "Fota House",
+        category: "Residence",
+        location: "Fota Island",
+        description: "A unique own Island residance",
+        weather: "mild",
+        image: "z",
     },
     {
-        "title": "Ilnacullin ",
-        "category": "Garden",
-        "location": "Bantry",
-        "description": "An Island Garden of rare Beauty",
-        "weather": "stormy",
-        "image": "a"
+        title: "Ilnacullin ",
+        category: "Garden",
+        location: "Bantry",
+        description: "An Island Garden of rare Beauty",
+        weather: "stormy",
+        image: "a",
 
     }
 ];

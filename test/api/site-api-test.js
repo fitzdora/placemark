@@ -2,7 +2,7 @@ import { EventEmitter } from "events";
 import { assert } from "chai";
 import { placemarkService } from "./placemark-services.js";
 import { assertSubset } from "../test-utils.js";
-import { maggie, fota, testSites } from "../fixtures.js"
+import { maggie, fota, testSites, maggieCredentials } from "../fixtures.js"
 
 EventEmitter.setMaxListeners(25);
 
@@ -14,11 +14,11 @@ suite("Site Api Tests", () => {
     setup(async () => {
         placemarkService.clearAuth();
         user = await placemarkService.createUser(maggie);
-        await placemarkService.authenticate(maggie);
+        await placemarkService.authenticate(maggieCredentials);
         await placemarkService.deleteAllSites();
-        await placemarkService.deleteAllUsers();
+       // await placemarkService.deleteAllUsers();
         user = await placemarkService.createUser(maggie);
-        await placemarkService.authenticate(maggie);
+        await placemarkService.authenticate(maggieCredentials);
         fota.userid = user._id;
     });
 
