@@ -11,11 +11,15 @@ import { connectMongo } from "./mongo/connect.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { siteMongoStore } from "./mongo/site-mongo-store.js";
 import { placeMongoStore } from "./mongo/place-mongo-store.js";
+import { addsiteMongoStore } from "./mongo/addsite-mongo-store.js";
+import { guideMongoStore } from "./mongo/guide-mongo-store.js";
 
 export const db = {
  userStore: null,
  siteStore: null,
  placeStore: null,
+ addSiteStore: null,
+ guideStore: null,
 
  init(storeType) {
    switch (storeType){
@@ -28,12 +32,15 @@ export const db = {
          this.userStore = userMongoStore;
          this.siteStore = siteMongoStore;
          this.placeStore = placeMongoStore;
+         this.addSiteStore = addsiteMongoStore;
+         this.guideStore = guideMongoStore;
          connectMongo();
          break;
       default:
          this.userStore = userMemStore;
          this.siteStore = siteMemStore;
          this.placeStore = placeMemStore;
+         
    }
  },
 };

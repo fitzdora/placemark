@@ -2,20 +2,20 @@ export const seedData = {
     users: {
       _model: "User",
       homer: {
-        firstName: "Homer",
-        lastName: "Simpson",
+        firstname: "Homer",
+        lastname: "Simpson",
         email: "homer@simpson.com",
         password: "secret"
       },
       marge: {
-        firstName: "Marge",
-        lastName: "Simpson",
+        firstname: "Marge",
+        lastname: "Simpson",
         email: "marge@simpson.com",
         password: "secret"
       },
       bart: {
-        firstName: "Bart",
-        lastName: "Simpson",
+        firstname: "Bart",
+        lastname: "Simpson",
         email: "bart@simpson.com",
         password: "secret"
       }
@@ -25,7 +25,48 @@ export const seedData = {
         cobh: {
             title: "Cobh Sites",
             userid: "->users.bart"
-        }
+        },
+        fota: {
+            title: "Fota Island",
+            userid: "->users.marge"
+        },
+        midleton: {
+          title: "Cork City",
+          userid: "->users.homer"
+      }
+    },
+    guides: {
+      _model: "Guide",
+      lisa: {
+        firstname: "Lisa",
+        lastname: "Simpson",
+        office: "Heritage Officer",
+      },
+      homer: {
+        firstname: "Homer",
+        lastname: "Simpson",
+        office: "Administrator",
+      },
+      bobby: {
+        firstname: "Bobby",
+        lastname: "Simpson",
+        office: "Tour Guide",
+      },
+    },
+    addSites: {
+      _model: "addSite",
+      one: {
+        siteid: "->sites.fota",
+        guideid: "->guides.homer",
+      },
+      two: {
+        siteid: "->sites.cobh",
+        guideid: "->guides.lisa",
+      },
+      three: {
+        siteid: "->sites.midleton",
+        guideid: "->guides.bobby",
+      },
     },
     places: {
       _model: "Place",
