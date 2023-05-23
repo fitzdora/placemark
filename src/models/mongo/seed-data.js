@@ -41,31 +41,19 @@ export const seedData = {
         firstname: "Lisa",
         lastname: "Simpson",
         office: "Heritage Officer",
+        siteid: "->sites.fota",
       },
       homer: {
         firstname: "Homer",
         lastname: "Simpson",
         office: "Administrator",
+        siteid: "->sites.cobh",
       },
       bobby: {
         firstname: "Bobby",
         lastname: "Simpson",
         office: "Tour Guide",
-      },
-    },
-    addSites: {
-      _model: "addSite",
-      one: {
-        siteid: "->sites.fota",
-        guideid: "->guides.homer",
-      },
-      two: {
-        siteid: "->sites.cobh",
-        guideid: "->guides.lisa",
-      },
-      three: {
         siteid: "->sites.midleton",
-        guideid: "->guides.bobby",
       },
     },
     places: {

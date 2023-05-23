@@ -52,3 +52,17 @@ export const SiteSpecPlus = SiteSpec.keys({
 }).label("SitePlus");
 
 export const SiteArraySpec = Joi.array().items(SiteSpecPlus).label("SiteArray");
+
+export const GuideSpec = Joi.object ()
+.keys({
+  firstname: Joi.string().required().example("Lisa"),
+  lastname: Joi.string().required().example("Simpson"),
+  office: Joi.string().required().example("Heritage Officer"),
+}).label("Guide");
+
+export const GuideSpecPlus = GuideSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("GuidePlus");
+
+export const GuideArraySpec = Joi.array().items(GuideSpecPlus).label("GuideArray");

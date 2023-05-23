@@ -65,6 +65,25 @@ export const testSites = [
     }
 ];
 
+export const testGuides = [
+    {
+        firstname: "Lisa",
+        lastname: "Simpson",
+        office: "Heritage Officer",
+    },
+    {
+        firstname: "Bobby",
+        lastname: "Simpson",
+        office: "Tour Guide",
+    }
+];
+
+export const homer = {
+    firstname: "Homer",
+    lastname: "Simpson",
+    office: "Administrator"
+};
+
 export const testPlaces = [
     {
         title: "Charles Fort",

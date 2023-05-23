@@ -1,6 +1,7 @@
 import { userApi } from "./api/users-api.js";
 import { siteApi } from "./api/site-api.js";
 import { placeApi } from "./api/place-api.js";
+import { guideApi } from "./api/guide-api.js";
 
 export const apiRoutes = [
     { method: "POST", path: "/api/users", config: userApi.create },
@@ -20,5 +21,11 @@ export const apiRoutes = [
     { method: "GET", path: "/api/places", config: placeApi.find },
     { method: "GET", path: "/api/places/{id}", config: placeApi.findOne },
     { method: "DELETE", path: "/api/places/{id}", config: placeApi.deleteOne },
+
+    { method: "POST", path: "/api/guides", config: guideApi.create },
+    { method: "DELETE", path: "/api/guides", config: guideApi.deleteAll },
+    { method: "GET", path: "/api/guides", config: guideApi.find },
+    { method: "GET", path: "/api/guides/{id}", config: guideApi.findOne },
+    { method: "DELETE", path: "/api/guides/{id}", config: guideApi.deleteOne },
 
 ];
