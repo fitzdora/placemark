@@ -8,7 +8,7 @@ const addSiteSchema = new Schema ({
         ref: "Sites",
     },
     guideid: {
-        type: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId, 
         ref: "Guide",
     },    
 });

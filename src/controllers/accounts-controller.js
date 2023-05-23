@@ -1,6 +1,9 @@
 import { validate } from "uuid";
+import bcrypt from "bcrypt"; // salting and hashing
 import { db } from "../models/db.js";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
+
+const saltRounds = 10; // salting and hashing 
 
 export const accountsController = {
 
@@ -27,6 +30,7 @@ export const accountsController = {
         },
         handler: async function (request, h) {
             const user = request.payload;
+            user.password = await bcrypt.hash(user.password, saltRounds); // salting and hashing
             await db.userStore.addUser(user);
             return h.redirect("/");
         },
@@ -50,7 +54,8 @@ export const accountsController = {
         handler: async function (request, h) {
             const { email, password } = request.payload;
             const user = await db.userStore.getUserByEmail(email);
-            if (!user || user.password !== password){
+            const passwordsMatch = await bcrypt.compare(password, user.password); // salting and hashing
+            if (!user || !passwordsMatch) { // salting and hashing
                 return h.redirect("/");
             }
             request.cookieAuth.set({ id: user._id });
