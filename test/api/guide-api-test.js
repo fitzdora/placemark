@@ -13,7 +13,7 @@ suite("Guide Api Tests", () => {
         user = await placemarkService.createUser(maggie);
         await placemarkService.authenticate(maggieCredentials);
         await placemarkService.deleteAllGuides();
-       
+    
         user = await placemarkService.createUser(maggie);
         await placemarkService.authenticate(maggieCredentials);
         fota.userid = user._id;
