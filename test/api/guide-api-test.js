@@ -12,7 +12,7 @@ suite("Guide Api Tests", () => {
         placemarkService.clearAuth();
         user = await placemarkService.createUser(maggie);
         await placemarkService.authenticate(maggieCredentials);
-        await placemarkService.deleteAllGuides();
+       // await placemarkService.deleteAllGuides();
     
         user = await placemarkService.createUser(maggie);
         await placemarkService.authenticate(maggieCredentials);

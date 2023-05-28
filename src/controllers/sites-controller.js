@@ -42,4 +42,14 @@ export const siteController = {
       return h.redirect(`/site/${site._id}`);
     },
   },
+ // added functionally to see all sites listed to tie in with Svelte
+  report: {
+    handler: async function (request, h) {
+      const sites = await db.siteStore.getAllSites();
+      return h.view("list-sites" , {
+        title: "All sites posted",
+        sites: sites,
+      });
+    }
+  }
 };

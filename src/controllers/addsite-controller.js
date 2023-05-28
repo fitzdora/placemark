@@ -1,6 +1,6 @@
 import { db } from "../models/db.js";
 import { guideMongoStore } from "../models/mongo/guide-mongo-store.js";
-
+ // this is what I was initially trying to build for the frontend
 export const addSiteController = {
     index: {
         handler: async function (request, h) {

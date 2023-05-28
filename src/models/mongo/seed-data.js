@@ -24,14 +24,20 @@ export const seedData = {
         _model: "Site",
         cobh: {
             title: "Cobh Sites",
+            lat: "51.850180",
+            lng: "-8.294740",
             userid: "->users.bart"
         },
         fota: {
             title: "Fota Island",
+            lat: "51.898620",
+            lng: "-8.279890",
             userid: "->users.marge"
         },
         midleton: {
           title: "Cork City",
+          lat: "51.897869",
+          lng: "-8.471090",
           userid: "->users.homer"
       }
     },

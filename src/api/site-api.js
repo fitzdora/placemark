@@ -106,4 +106,24 @@ export const siteApi = {
         tags: ["api"],
         description: "Delete all Sites",
     },
+
+   addSite: {
+        auth: {
+          strategy: "jwt",
+        },
+        handler: async function (request, h) {
+          const user = await db.userStore.findById(request.params.id);
+          if (!user) {
+            return Boom.notFound("No User with this id");
+          }
+          const addSite = await db.siteStore.addSite(
+              request.payload.title,
+              request.payload.lat,
+              request.payload.lng,
+              user,
+          );
+          return addSite;
+        },
+      },
+    
 };

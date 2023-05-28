@@ -56,12 +56,18 @@ export const garden = {
 export const testSites = [
     {
         title: "Belvelly Castle",
+        lat: "52.161290",
+        lng: "-7.152420",
     },
     {
         title: "Fota House",
+        lat: "52.140858",
+        lng: "-6.152420",
     },
     {
         title: "Barryscourt Castle",
+        lat: "52.160858",
+        lng: "-7.231560",
     }
 ];
 
