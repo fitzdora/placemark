@@ -16,7 +16,7 @@ export function connectMongo() {
     dotenv.config();
     
     Mongoose.set("strictQuery", true);
-    Mongoose.connect(process.env.db);
+    Mongoose.connect(process.env.MONGODB_URI);
     const db = Mongoose.connection;
 
     db.on("error", (err) => {
