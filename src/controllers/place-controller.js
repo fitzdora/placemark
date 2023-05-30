@@ -1,6 +1,6 @@
 import { PlaceSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
-
+// This is not used left over from Monday 22nd May as I tried to incorporate place rather than site initially 
 export const placeController = {
     index: {
         handler: async function (request, h) {

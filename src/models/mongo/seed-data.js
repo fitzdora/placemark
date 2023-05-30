@@ -5,7 +5,7 @@ export const seedData = {
         firstname: "Homer",
         lastname: "Simpson",
         email: "homer@simpson.com",
-        password: "$2a$10$KYnh9rmi0afoVpBQKCA4UeiMmH7YH7x/VQGYFDJt56EI8BRdqsDca"
+        password: "$2a$10$RKOqjGMWzHQrg5x1Sq3gLO84O3NAJ0tAKPTei5beZOtO3BtEc/9lG"
       },
       marge: {
         firstname: "Marge",
